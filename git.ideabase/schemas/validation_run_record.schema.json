@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/csrs/validation_run_record.schema.json",
+  "title": "CSRS Validation Run Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "csrs_version",
+    "case_id",
+    "replay_tier",
+    "canon_manifest_hash",
+    "source_corpus_hash",
+    "prompt_hash",
+    "evaluator_config_hash",
+    "start_state_hash",
+    "end_state_hash",
+    "failed_checks",
+    "adjudication_events",
+    "ledger_event_refs",
+    "residual_risk",
+    "decision"
+  ],
+  "properties": {
+    "run_id": {"type": "string", "minLength": 1},
+    "csrs_version": {"type": "string", "pattern": "^0\\.2\\.[0-9]+$"},
+    "case_id": {"enum": ["CASE_A_LONG_CONTEXT_AUDIT", "CASE_B1_COGNITION_KILN_R", "CASE_B2_COGNITION_KILN_T", "CASE_C_CARBON_AWARE_ORCHESTRATION"]},
+    "replay_tier": {"enum": ["STRICT_REPLAY", "STRUCTURAL_REPLAY", "SEMANTIC_REPLAY", "NON_REPLAYABLE_EXPLORATORY"]},
+    "canon_manifest_hash": {"type": "string", "minLength": 1},
+    "source_corpus_hash": {"type": "string", "minLength": 1},
+    "prompt_hash": {"type": "string", "minLength": 1},
+    "tool_state_hash": {"type": ["string", "null"]},
+    "evaluator_config_hash": {"type": "string", "minLength": 1},
+    "start_state_hash": {"type": "string", "minLength": 1},
+    "end_state_hash": {"type": "string", "minLength": 1},
+    "failed_checks": {"type": "array", "items": {"type": "string"}},
+    "adjudication_events": {"type": "array", "items": {"type": "string"}},
+    "ledger_event_refs": {"type": "array", "items": {"type": "string"}},
+    "residual_risk": {"type": "string"},
+    "decision": {"enum": ["PASS", "PASS_WITH_LIMITATIONS", "FAIL_REPAIRABLE", "FAIL_CONTAMINATED", "INCONCLUSIVE"]}
+  }
+}
