@@ -1,0 +1,84 @@
+--- CSRS Method Package v0.2
++++ CSRS Method Package v0.2.3
+
+PATCH 1 OF 3: v0.2.1 CLAIM HYGIENE + FAILURE TAXONOMY
+
+- Replace proof-like posture with bounded architecture posture.
+- Add claim_posture rules:
+  - architecture claims allowed with schema and test plan
+  - empirical validation claims allowed after case runs
+  - formal proof claims require proof artifacts
+  - speculative extension claims require quarantine
+- Replace absolute language:
+  - absolute elimination -> measured reduction under declared baseline
+  - flawless path -> traceable supported path under audited graph construction
+  - mathematically proves -> empirically validates within stated assumptions
+  - guarantees -> enforces within declared boundary conditions
+- Add failure modes:
+  - FALSE_STABILITY
+  - ADVERSARIAL_METRIC_PRESSURE
+  - GRAPH_CONSTRUCTION_DRIFT
+- Add validity split:
+  - provenance validity
+  - semantic validity
+  - empirical validity
+  - operational validity
+- Add invariant classes:
+  - LEXICAL_INVARIANT
+  - NUMERIC_INVARIANT
+  - LOGICAL_INVARIANT
+  - ONTOLOGY_INVARIANT
+  - PROVENANCE_INVARIANT
+- Add halt taxonomy:
+  - SOFT_HALT
+  - QUARANTINE_HALT
+  - ROLLBACK_HALT
+  - HUMAN_ADJUDICATION_HALT
+  - IRREVERSIBLE_CONTAMINATION_HALT
+
+PATCH 2 OF 3: v0.2.2 EXECUTION SCHEMA + REPLAY TIERS
+
+- Add determinism_tiers:
+  - STRICT_REPLAY
+  - STRUCTURAL_REPLAY
+  - SEMANTIC_REPLAY
+  - NON_REPLAYABLE_EXPLORATORY
+- Add Canon Manifest governance requirements:
+  - amendment protocol
+  - authorized editors or roles
+  - ontology fork procedure
+  - conflict-resolution pathway
+  - rollback or supersession semantics
+  - version lineage
+  - admission criteria
+  - retirement procedure
+- Add manifest_change_receipt template.
+- Add claim_admission_labels:
+  - SOURCE_BOUND
+  - DERIVED
+  - HEURISTIC
+  - SPECULATIVE
+  - UNVERIFIED_TRANSFER
+  - ONTOLOGY_EXTRAPOLATION
+  - CONTAMINATED_CHAIN
+- Add rehydration_burden_table fields.
+- Add driftlint scope warning.
+
+PATCH 3 OF 3: v0.2.3 VALIDATION HARNESS + CASE REFACTOR
+
+- Split Case B into:
+  - CASE_B1_COGNITION_KILN_R
+  - CASE_B2_COGNITION_KILN_T
+- Add Case A required baselines:
+  - raw long-context prompt
+  - naive summary prompt
+  - standard RAG prompt
+  - CSRS reseed plus rehydration prompt
+- Bound Case C as optional cross-domain stress test.
+- Add validation_run_record schema.
+- Add method_failure_event schema.
+- Add version status and next allowed work.
+
+RESULT
+
+CSRS v0.2.3 is a patched method architecture candidate. It is suitable for ideabase population, validation planning, and schema-first development. It is not yet a formal standard, production claim, or proof artifact.
