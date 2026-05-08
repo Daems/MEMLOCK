@@ -1,0 +1,18 @@
+{
+  "run_id": "CSRS-CASEA-DRYRUN-0001",
+  "csrs_version": "0.2.3",
+  "case_id": "CASE_A_LONG_CONTEXT_AUDIT",
+  "replay_tier": "STRUCTURAL_REPLAY",
+  "canon_manifest_hash": "sha256:TBD_CANON_MANIFEST_HASH",
+  "source_corpus_hash": "sha256:TBD_SOURCE_CORPUS_HASH",
+  "prompt_hash": "sha256:TBD_PROMPT_HASH",
+  "tool_state_hash": null,
+  "evaluator_config_hash": "sha256:TBD_EVALUATOR_CONFIG_HASH",
+  "start_state_hash": "sha256:TBD_START_STATE_HASH",
+  "end_state_hash": "sha256:TBD_END_STATE_HASH",
+  "failed_checks": [],
+  "adjudication_events": [],
+  "ledger_event_refs": [],
+  "residual_risk": "Dry-run fixture only. No empirical validation claim attached.",
+  "decision": "INCONCLUSIVE"
+}
