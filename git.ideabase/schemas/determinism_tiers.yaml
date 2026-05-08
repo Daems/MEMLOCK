@@ -1,0 +1,43 @@
+determinism_tiers:
+  STRICT_REPLAY:
+    requires:
+      - model_id
+      - model_version
+      - prompt_hash
+      - source_corpus_hash
+      - canon_manifest_hash
+      - tool_state_hash
+      - retrieval_set_hash
+      - temperature_or_sampling_config
+      - execution_environment_hash
+    guarantee: token-level or execution-level replay target
+    allowed_claims:
+      - deterministic_execution_claim
+      - exact_replay_claim
+
+  STRUCTURAL_REPLAY:
+    requires:
+      - canon_manifest_hash
+      - invariant_graph_hash
+      - source_corpus_hash
+      - validation_schema_hash
+    guarantee: same claim topology and invariant preservation; wording may differ
+    allowed_claims:
+      - structural_equivalence
+      - invariant_preservation
+
+  SEMANTIC_REPLAY:
+    requires:
+      - source_references
+      - declared_validation_criteria
+      - supported_claim_list
+    guarantee: same supported conclusions; local reasoning path may differ
+    allowed_claims:
+      - conclusion_preservation
+      - source_grounded_semantic_equivalence
+
+  NON_REPLAYABLE_EXPLORATORY:
+    requires:
+      - explicit_exploratory_label
+    guarantee: none
+    rule: output cannot enter canonical reseed state without adjudication
