@@ -1,0 +1,36 @@
+canon_manifest:
+  manifest_id: TBD
+  version: 0.1
+  status: DRAFT_CANONICAL_CANDIDATE
+  previous_manifest_hash: TBD
+  current_manifest_hash: TBD
+  source_corpus_hash: TBD
+
+  governance:
+    self_authorizing: false
+    amendment_protocol: TBD
+    authorized_editors_or_roles: []
+    ontology_fork_procedure: TBD
+    conflict_resolution_pathway: TBD
+    rollback_or_supersession_semantics: TBD
+    version_lineage: []
+    admission_criteria_for_new_terms: TBD
+    retirement_procedure_for_deprecated_terms: TBD
+
+  approved_terms: []
+
+  forbidden_equivalences: []
+
+  manifest_change_receipt_template:
+    previous_manifest_hash: REQUIRED
+    new_manifest_hash: REQUIRED
+    changed_terms: REQUIRED
+    reason_for_change: REQUIRED
+    approving_actor: REQUIRED
+    reversibility_class: REQUIRED
+    downstream_tests_required: REQUIRED
+
+  non_claims:
+    - no formal proof claim without proof artifact
+    - no production readiness claim without validation runs
+    - no standardization claim without external review/adoption path
