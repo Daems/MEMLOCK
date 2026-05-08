@@ -1,0 +1,48 @@
+artifact:
+  id: CSRS_GIT_IDEABASE_v0.2.3
+  title: Constraint-Stable Recursive Synthesis git.ideabase
+  version: 0.2.3
+  status: PATCHED_IDEABASE_CANDIDATE
+  source_file: Method Package Plan v0.2 Update.pdf
+  source_relationship: applied_patch_series_from_uploaded_pdf
+  created_date: 2026-05-08
+  operator: JB
+
+claim_posture:
+  formal_proof_claims: PROHIBITED_WITHOUT_PROOF_ARTIFACT
+  empirical_validation_claims: ALLOWED_AFTER_TEST_RUNS
+  architecture_claims: ALLOWED_WITH_SCHEMA_AND_TEST_PLAN
+  speculative_extension_claims: QUARANTINE_REQUIRED
+
+applied_patches:
+  - version: 0.2.1
+    role: claim hygiene and failure taxonomy hardening
+    status: APPLIED
+  - version: 0.2.2
+    role: execution schema, replay tiers, manifest governance, reseed admission labels
+    status: APPLIED
+  - version: 0.2.3
+    role: validation harness, case refactor, ledger schema
+    status: APPLIED
+
+blocked_until_validated:
+  - manifesto drafting
+  - mathematical proof claims
+  - standardization claims
+  - production-readiness claims
+
+required_next_artifacts:
+  - CANON_MANIFEST_TEMPLATE_v0.1
+  - VALIDATION_RUN_RECORD_TEMPLATE_v0.1
+  - METHOD_FAILURE_EVENT_SCHEMA_v0.1
+  - CLAIM_ADMISSION_LABELS_TABLE_v0.1
+
+core_terms:
+  CSRS: Constraint-Stable Recursive Synthesis
+  FRM: Forensic Reseeding Method
+  BAR: Burden-Aware Rehydration
+  CM: Canon Manifest
+  AS: Adjudication Surface
+  MFL: Method Failure Ledger
+
+signature: SIG:JMBarrows|scripsit|adiuvante:AI|doc:CSRS_GIT_IDEABASE_v0.2.3|date:2026-05-08
