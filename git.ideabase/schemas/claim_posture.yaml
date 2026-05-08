@@ -1,0 +1,33 @@
+claim_posture:
+  architecture_claims:
+    status: ALLOWED
+    requirement:
+      - schema declared
+      - boundary conditions declared
+      - execution pathway declared
+  empirical_validation_claims:
+    status: ALLOWED_AFTER_TEST_RUNS
+    requirement:
+      - case_run_ids
+      - baseline_comparisons
+      - failure_counts
+      - residual_risk_statement
+  formal_proof_claims:
+    status: PROHIBITED_WITHOUT_PROOF_ARTIFACT
+    requirement:
+      - proof_object
+      - bounded_assumptions
+      - replay_conditions
+      - declared_domain_of_validity
+      - verification_method
+  speculative_extension_claims:
+    status: QUARANTINE_REQUIRED
+    requirement:
+      - label_SPECULATIVE
+      - excluded_from_canonical_reseed_state
+
+language_replacements:
+  absolute_elimination: measured reduction under declared baseline
+  flawless_path: traceable supported path under audited graph construction
+  mathematically_proves: empirically validates within stated assumptions
+  guarantees: enforces within declared boundary conditions
