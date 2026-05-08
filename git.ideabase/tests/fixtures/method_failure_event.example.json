@@ -1,0 +1,16 @@
+{
+  "event_id": "MFE-0001",
+  "timestamp": "2026-05-08T00:00:00Z",
+  "csrs_version": "0.2.3",
+  "run_id": "CSRS-CASEA-DRYRUN-0001",
+  "failure_mode": "FALSE_STABILITY",
+  "localization": {
+    "failed_node_id": "node:TBD_FAILED_NODE",
+    "failed_edge_id": null,
+    "source_span_id": "span:TBD_SOURCE_SPAN",
+    "prior_stable_node_id": null
+  },
+  "severity": "MEDIUM",
+  "halt_type": "QUARANTINE_HALT",
+  "remediation_status": "NOT_STARTED"
+}
