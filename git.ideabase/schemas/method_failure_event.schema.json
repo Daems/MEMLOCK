@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/csrs/method_failure_event.schema.json",
+  "title": "CSRS Method Failure Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "timestamp",
+    "csrs_version",
+    "run_id",
+    "failure_mode",
+    "localization",
+    "severity",
+    "halt_type",
+    "remediation_status"
+  ],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 1},
+    "timestamp": {"type": "string", "format": "date-time"},
+    "csrs_version": {"type": "string"},
+    "run_id": {"type": "string", "minLength": 1},
+    "failure_mode": {
+      "enum": [
+        "FALSE_STABILITY",
+        "GRAPH_CONSTRUCTION_DRIFT",
+        "ADVERSARIAL_METRIC_PRESSURE",
+        "ONTOLOGY_DRIFT",
+        "METAPHOR_HARDENING",
+        "UNSUPPORTED_TRANSFER",
+        "INVARIANT_LOSS",
+        "PROVENANCE_BREAK",
+        "REHYDRATION_OVERBURDEN",
+        "HALLUCINATION_MULTIPLICATION",
+        "FORMAT_COLLAPSE",
+        "FALSE_COMPLETION"
+      ]
+    },
+    "localization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["failed_node_id"],
+      "properties": {
+        "failed_node_id": {"type": "string", "minLength": 1},
+        "failed_edge_id": {"type": ["string", "null"]},
+        "source_span_id": {"type": ["string", "null"]},
+        "prior_stable_node_id": {"type": ["string", "null"]}
+      }
+    },
+    "severity": {"enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"]},
+    "halt_type": {"enum": ["SOFT_HALT", "QUARANTINE_HALT", "ROLLBACK_HALT", "HUMAN_ADJUDICATION_HALT", "IRREVERSIBLE_CONTAMINATION_HALT"]},
+    "remediation_status": {"enum": ["NOT_STARTED", "PATCHED", "ROLLED_BACK", "QUARANTINED", "ACCEPTED_WITH_RESIDUAL_RISK", "RETIRED"]}
+  }
+}
