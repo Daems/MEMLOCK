@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Offline Asteroids</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="cabinet">
+    <header class="hud">
+      <span>OFFLINE ASTEROIDS</span>
+      <span id="score">SCORE 000000</span>
+      <span id="lives">LIVES 3</span>
+    </header>
+
+    <canvas id="game" width="960" height="640" aria-label="Offline Asteroids game canvas"></canvas>
+
+    <footer class="panel">
+      <p><strong>Controls:</strong> Arrow keys or WASD move, Space fires, P pauses, R restarts.</p>
+      <p class="signal">LOCAL-FIRST // NO CLOUD // NO DINOSAUR</p>
+    </footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
