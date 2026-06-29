@@ -1,0 +1,4 @@
+{"id":"oq_provider_name","status":"open","question":"Did Key.ai mean Kie.ai, or should the repo support a separate Key.ai provider adapter?","blocks":"provider_adapter_hardening"}
+{"id":"oq_trigger","status":"open","question":"What should trigger jobs first: CSV, Google Sheet, folder watch, Slack command, web form, or scheduled batch?","blocks":"production_workflow"}
+{"id":"oq_storage","status":"open","question":"Where should final images live after local download: Google Drive, S3/R2, GitHub, or another media library?","blocks":"publishing_pipeline"}
+{"id":"oq_quality_ladder","status":"open","question":"Should quality policy be draft=1K, review=2K, final=4K?","blocks":"cost_control"}

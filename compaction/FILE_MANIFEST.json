@@ -1,0 +1,151 @@
+{
+  "generated_utc": "2026-06-29T16:55:00Z",
+  "root": "nanobanana-vizigrok-compaction",
+  "files": [
+    {
+      "path": ".env.example",
+      "bytes": 308,
+      "sha256": "ba8ca9078937ca059aa17ec7d67e3acf9d4e1c67a48c5ddf6bcfaa3567b9fb4d"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 50,
+      "sha256": "6a2c1d1e4771a790862b25b960e4d79af6f2ea20221ee820d5e38d837645c623"
+    },
+    {
+      "path": "CLAUDE.md",
+      "bytes": 1396,
+      "sha256": "dc4535b673f11e9790fb621984d0ee76343f8222897e9d2da40361e71a452cfa"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3464,
+      "sha256": "d7cf72e7170eafbb0f1da752d384da018b4dc5182651670fe89608710722d667"
+    },
+    {
+      "path": "VIZIGROK_COMPACTION_START_HERE.md",
+      "bytes": 615,
+      "sha256": "5e270c4d271c337ace6ff6d7a469137733c08603f5211f58447b788f2270eb88"
+    },
+    {
+      "path": "compaction/FILE_MANIFEST.json",
+      "bytes": 3061,
+      "sha256": "e5c4ae3e55f1ed7fc59ea9f72ffa3efb5e65979c9218287ac5d674f011fb2b2b"
+    },
+    {
+      "path": "compaction/REHYDRATE_PROMPT.txt",
+      "bytes": 810,
+      "sha256": "ce1336091d9e9595ddce66c53b5011b330e15f1a275fdb5ec42328b3baf2118d"
+    },
+    {
+      "path": "compaction/VIZIGROK_COMPACTION.md",
+      "bytes": 4176,
+      "sha256": "d40b337ebb9bf1fb6c6c55c4679cf58bd8667749d2d770bfe0661e0f1b30350e"
+    },
+    {
+      "path": "compaction/VIZIGROK_PACKET.json",
+      "bytes": 2236,
+      "sha256": "cd83b247e2a48b709f781cdcef74fd8cf16151835f5b36babdc7f6f4cddd9dd0"
+    },
+    {
+      "path": "compaction/VIZIGROK_PACKET.yaml",
+      "bytes": 3503,
+      "sha256": "b998b3dbe20e2890a34c2b8364d9844571377227f169fb9556e8aa31c923c39d"
+    },
+    {
+      "path": "configs/batch_prompts.csv",
+      "bytes": 261,
+      "sha256": "2fc92ea3cdc6d663ff39034409074828c6ef7b216bf21d0893ea917a0027b01f"
+    },
+    {
+      "path": "configs/example_job.yaml",
+      "bytes": 303,
+      "sha256": "ba51ff1492aa872a25195b298c9c453b5263f60aa15bde2315fbbfb7f5f9dab2"
+    },
+    {
+      "path": "dashboards/vizigrok_compaction.html",
+      "bytes": 8843,
+      "sha256": "907fa0f5847cd2e65ef0a6dac2984edb2798c5e0c2324d46be33b74e98bd353d"
+    },
+    {
+      "path": "diagrams/vizigrok_nano_banana.mmd",
+      "bytes": 954,
+      "sha256": "58537038bb9b099340900ef5f1bb6ff9f0e2b695c1fed4e7ca886b1ef154f02b"
+    },
+    {
+      "path": "ledger/DECISIONS.jsonl",
+      "bytes": 835,
+      "sha256": "94160c3e5c04ff1806087915ed1850bb2341e0a60419f7ead9e98a837e115720"
+    },
+    {
+      "path": "ledger/OPEN_QUESTIONS.jsonl",
+      "bytes": 694,
+      "sha256": "26f5d3478bf73b3c07a7462e1727f2d0ec0fff44f0dac020f6d690e1d269ec0a"
+    },
+    {
+      "path": "ledger/RISKS.jsonl",
+      "bytes": 753,
+      "sha256": "4fd5888c944abfbcba4ec8501797c773373411dd9a34402481c0a1c5d087fd5f"
+    },
+    {
+      "path": "ledger/TASKS.jsonl",
+      "bytes": 931,
+      "sha256": "52ab00d2b2cfa118d871c4db5dfea927c571b1e3d35622df8a3ec76cea12b75b"
+    },
+    {
+      "path": "okf/index.md",
+      "bytes": 1568,
+      "sha256": "4d50262ed8651741c0312d3b8aa2d05ff16c63aec811189f77bfc372f19a552f"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 397,
+      "sha256": "d6dbfdfbb3299c660ae2387c10d35e1dda15e13ddcd7a53ca0dd3f953e71a456"
+    },
+    {
+      "path": "schemas/vizigrok_packet.schema.json",
+      "bytes": 1144,
+      "sha256": "337e20cd733cd1c7907d327658f8c065cdfd060d2d27ce550961aa6379e93dde"
+    },
+    {
+      "path": "scripts/run_example.sh",
+      "bytes": 108,
+      "sha256": "661c27deb167b15cea445a5a69872cb631ad34a525e677adaf9852834577716e"
+    },
+    {
+      "path": "skills/nano-banana-pro/SKILL.md",
+      "bytes": 1263,
+      "sha256": "c924cf705de4dc4925e35a6f095a2f44ce4c358506180b4f97b8149ae2251569"
+    },
+    {
+      "path": "src/nb_auto/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/nb_auto/callback_server.py",
+      "bytes": 941,
+      "sha256": "1980b0a6492a322fecd2c0ce8fc8d8dc420015473c3215024a2dbdd5535c3729"
+    },
+    {
+      "path": "src/nb_auto/cli.py",
+      "bytes": 5997,
+      "sha256": "7b19697a68b10ce612e2650f7268fdd41443f4e137e0900d0acbc48f4470dba2"
+    },
+    {
+      "path": "src/nb_auto/config.py",
+      "bytes": 1347,
+      "sha256": "5797ced82bec9eda9b248afbf7cf09bda7a0dcc8db29d45286efad757f6233b6"
+    },
+    {
+      "path": "src/nb_auto/kie_client.py",
+      "bytes": 4606,
+      "sha256": "0b8ac16d90cfbfe9b57d6ddabc7d960170b67108048ec5a198ccbcbe5e41bdd9"
+    },
+    {
+      "path": "src/nb_auto/storage.py",
+      "bytes": 2357,
+      "sha256": "016e7f6d06e192f77e8f562f7f75847473889a9107fde5f0184a953af742dace"
+    }
+  ]
+}

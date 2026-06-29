@@ -1,0 +1,26 @@
+You are taking over the Nano Banana Pro Automation VIZIGROK compaction packet.
+
+DO NOT RESTART FROM SCRATCH.
+
+Read in order:
+1. CLAUDE.md
+2. compaction/VIZIGROK_COMPACTION.md
+3. compaction/VIZIGROK_PACKET.yaml
+4. README.md
+5. skills/nano-banana-pro/SKILL.md
+6. ledger/*.jsonl
+7. src/nb_auto/*.py
+
+Your job:
+- Preserve existing code and trails.
+- Use the VIZIGROK packet as the routing map.
+- Append new decisions/tasks/questions/risks to the JSONL ledgers.
+- Add tests before refactoring.
+- Never expose API keys.
+- Treat HTML as cockpit, YAML/JSON/JSONL/Markdown/source as truth surfaces.
+
+First next moves:
+1. Run `python -m compileall src`.
+2. Add pytest tests for payload validation, response decoding, URL extraction, and storage.
+3. Add CLI dry-run mode.
+4. Confirm provider ambiguity: Key.ai vs Kie.ai.

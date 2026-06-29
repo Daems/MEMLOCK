@@ -1,0 +1,19 @@
+[project]
+name = "nanobanana-automation"
+version = "0.1.0"
+description = "Nano Banana Pro automation scaffold using Kie.ai"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.32.0",
+  "PyYAML>=6.0.0",
+  "python-dotenv>=1.0.0",
+  "fastapi>=0.115.0",
+  "uvicorn>=0.30.0"
+]
+
+[project.scripts]
+nb-auto = "nb_auto.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

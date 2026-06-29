@@ -1,0 +1,81 @@
+{
+  "packet_type": "VIZIGROK_COMPACTION_PACKET",
+  "schema_version": "0.1",
+  "packet_id": "vizigrok.nano-banana-pro.v0.1",
+  "project": {
+    "name": "Nano Banana Pro Automation",
+    "purpose": "Automate Nano Banana Pro image generation through Kie.ai with durable agent-readable context.",
+    "mode": "rehydrate_ready"
+  },
+  "truth_hierarchy": [
+    "repo_source_files",
+    "compaction/VIZIGROK_COMPACTION.md",
+    "compaction/VIZIGROK_PACKET.yaml",
+    "ledger/*.jsonl",
+    "okf/*.md",
+    "chat_context"
+  ],
+  "surfaces": {
+    "markdown": "handoff and anti-restart narrative",
+    "yaml": "agent-readable compaction state",
+    "json": "machine-ingestable packet and manifest",
+    "jsonl": "append-only decisions/tasks/questions/risks",
+    "mermaid": "workflow topology",
+    "html": "living VIZIGROK cockpit"
+  },
+  "workflow_states": [
+    "drafted",
+    "queued",
+    "submitted",
+    "polling_or_callback_wait",
+    "completed",
+    "downloaded",
+    "reviewed",
+    "published",
+    "archived",
+    "failed"
+  ],
+  "provider_assumption": {
+    "spoken": "Key.ai",
+    "implemented": "Kie.ai",
+    "model": "nano-banana-pro"
+  },
+  "rehydration_order": [
+    "CLAUDE.md",
+    "compaction/VIZIGROK_COMPACTION.md",
+    "compaction/VIZIGROK_PACKET.yaml",
+    "README.md",
+    "skills/nano-banana-pro/SKILL.md",
+    "src/nb_auto/kie_client.py",
+    "src/nb_auto/cli.py",
+    "src/nb_auto/storage.py",
+    "src/nb_auto/callback_server.py",
+    "ledger/DECISIONS.jsonl",
+    "ledger/TASKS.jsonl",
+    "ledger/OPEN_QUESTIONS.jsonl"
+  ],
+  "guardrails": [
+    "Never commit .env or API keys.",
+    "Keep provider credentials server-side.",
+    "Save full failure responses.",
+    "No automatic publishing without review gate."
+  ],
+  "open_questions": [
+    {
+      "id": "oq_provider_name",
+      "question": "Did Key.ai mean Kie.ai, or should a second adapter be created?"
+    },
+    {
+      "id": "oq_trigger",
+      "question": "Which trigger should launch jobs first?"
+    },
+    {
+      "id": "oq_storage",
+      "question": "Where should final media live after local download?"
+    },
+    {
+      "id": "oq_quality_ladder",
+      "question": "Should output quality ladder be 1K draft / 2K review / 4K final?"
+    }
+  ]
+}
