@@ -1,0 +1,4 @@
+{"id":"r001","severity":"high","risk":"API key exposure if future UI code calls provider directly.","mitigation":"Keep all provider calls server-side and never commit .env."}
+{"id":"r002","severity":"medium","risk":"Provider result URLs may expire before download.","mitigation":"Download immediately on callback or poll success; persist local file paths."}
+{"id":"r003","severity":"medium","risk":"Generated assets may publish without human review if automation is extended carelessly.","mitigation":"Add explicit review gate before remote publish."}
+{"id":"r004","severity":"medium","risk":"Provider naming ambiguity: Key.ai vs Kie.ai.","mitigation":"Keep question open and isolate provider code behind adapter interface before adding more vendors."}

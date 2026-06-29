@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VIZIGROK Compaction · Nano Banana Pro</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a33;
+      --panel2: #172244;
+      --ink: #f6f8ff;
+      --muted: #aab5d6;
+      --line: #2b3b70;
+      --hot: #ff4fd8;
+      --banana: #ffe46b;
+      --cyan: #64f4ff;
+      --green: #74ffb2;
+      --warn: #ffb86b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(255,79,216,.25), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(100,244,255,.18), transparent 35%),
+        var(--bg);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+    header {
+      padding: 42px 24px 24px;
+      max-width: 1180px;
+      margin: auto;
+    }
+    h1 { margin: 0; font-size: clamp(2.1rem, 7vw, 5.2rem); letter-spacing: -0.075em; line-height: .88; }
+    h2 { margin: 0 0 12px; font-size: 1.1rem; color: var(--banana); text-transform: uppercase; letter-spacing: .14em; }
+    h3 { margin: 0 0 8px; }
+    .subtitle { color: var(--muted); max-width: 780px; font-size: 1.08rem; margin-top: 18px; }
+    .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .badge {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: rgba(18,26,51,.72);
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: .86rem;
+    }
+    main { max-width: 1180px; margin: auto; padding: 0 24px 50px; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
+    .card {
+      grid-column: span 4;
+      background: linear-gradient(180deg, rgba(23,34,68,.9), rgba(18,26,51,.92));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 20px 70px rgba(0,0,0,.25);
+    }
+    .wide { grid-column: span 8; }
+    .full { grid-column: 1 / -1; }
+    .tiny { color: var(--muted); font-size: .9rem; }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin: 0;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #080d1b;
+      color: #dbe6ff;
+      overflow: auto;
+    }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+    .flow { display: grid; grid-template-columns: repeat(8, minmax(100px, 1fr)); gap: 10px; align-items: stretch; }
+    .node {
+      border: 1px solid var(--line);
+      background: rgba(8,13,27,.72);
+      border-radius: 16px;
+      padding: 12px;
+      min-height: 88px;
+      position: relative;
+    }
+    .node b { color: var(--cyan); display: block; margin-bottom: 4px; }
+    .node::after {
+      content: "→";
+      position: absolute;
+      right: -13px;
+      top: 38%;
+      color: var(--hot);
+      font-weight: 900;
+    }
+    .node:last-child::after { display: none; }
+    .status {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--green);
+      font-weight: 700;
+    }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); box-shadow: 0 0 16px var(--green); }
+    .table { display: grid; grid-template-columns: 160px 1fr; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+    .table div { padding: 11px 13px; border-bottom: 1px solid var(--line); }
+    .table div:nth-child(odd) { color: var(--banana); background: rgba(255,228,107,.06); }
+    .table div:nth-last-child(-n+2) { border-bottom: none; }
+    button {
+      border: 1px solid var(--line);
+      background: rgba(255,79,216,.13);
+      color: var(--ink);
+      padding: 9px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    button:hover { border-color: var(--hot); }
+    .btns { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
+    .warn { color: var(--warn); }
+    .banana { color: var(--banana); }
+    .hot { color: var(--hot); }
+    footer { color: var(--muted); padding: 24px; text-align: center; }
+    @media (max-width: 900px) { .card, .wide { grid-column: 1 / -1; } .flow { grid-template-columns: 1fr; } .node::after { display: none; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="status"><span class="dot"></span> REHYDRATE READY</div>
+    <h1>VIZIGROK<br/>COMPACTION</h1>
+    <p class="subtitle">Nano Banana Pro automation compressed into an agent-legible cockpit: Markdown handoff, YAML/JSON packet, JSONL trail, Mermaid topology, and runnable Python scaffold.</p>
+    <div class="badge-row">
+      <span class="badge">🍌 nano-banana-pro</span>
+      <span class="badge">⚙️ Kie.ai adapter</span>
+      <span class="badge">🧠 OKF-ish knowledge map</span>
+      <span class="badge">📜 JSONL ledger</span>
+      <span class="badge">🕯️ anti-restart packet</span>
+    </div>
+  </header>
+
+  <main class="grid">
+    <section class="card wide">
+      <h2>Canonical Flow</h2>
+      <div class="flow">
+        <div class="node"><b>Prompt</b><span>CLI, YAML, CSV, future Sheet or Slack.</span></div>
+        <div class="node"><b>Validate</b><span>Aspect, resolution, format, prompt.</span></div>
+        <div class="node"><b>Create Task</b><span>Kie.ai async job.</span></div>
+        <div class="node"><b>Task ID</b><span>Persist in SQLite.</span></div>
+        <div class="node"><b>Wait</b><span>Callback or polling.</span></div>
+        <div class="node"><b>Download</b><span>Archive result URLs fast.</span></div>
+        <div class="node"><b>Review</b><span>Human gate.</span></div>
+        <div class="node"><b>Publish</b><span>Only after approval.</span></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Truth Hierarchy</h2>
+      <ol>
+        <li>Repo source files</li>
+        <li>Compaction packet</li>
+        <li>OKF pages</li>
+        <li>JSONL ledger</li>
+        <li>Chat context</li>
+      </ol>
+      <p class="tiny">HTML is cockpit, not the source of truth. Tiny glowing bridge, not the courthouse archive.</p>
+    </section>
+
+    <section class="card">
+      <h2>Rehydration Order</h2>
+      <pre><code>CLAUDE.md
+compaction/VIZIGROK_COMPACTION.md
+compaction/VIZIGROK_PACKET.yaml
+README.md
+skills/nano-banana-pro/SKILL.md
+src/nb_auto/kie_client.py
+src/nb_auto/cli.py
+ledger/*.jsonl</code></pre>
+    </section>
+
+    <section class="card wide">
+      <h2>Packet JSON</h2>
+      <pre id="packet"><code>{
+  "packet_type": "VIZIGROK_COMPACTION_PACKET",
+  "packet_id": "vizigrok.nano-banana-pro.v0.1",
+  "mode": "rehydrate_ready",
+  "provider_assumption": {
+    "spoken": "Key.ai",
+    "implemented": "Kie.ai",
+    "model": "nano-banana-pro"
+  },
+  "surfaces": ["markdown", "yaml", "json", "jsonl", "mermaid", "html"],
+  "guardrails": [
+    "never commit .env",
+    "server-side API key only",
+    "download result URLs immediately",
+    "human review before publish"
+  ]
+}</code></pre>
+      <div class="btns"><button onclick="copyPacket()">Copy packet shard</button></div>
+    </section>
+
+    <section class="card full">
+      <h2>Topology</h2>
+      <pre><code>flowchart TD
+  Prompt[Prompt Sources] --> Validate[Job Validator]
+  Validate --> CLI[nb_auto CLI]
+  CLI --> API[Kie.ai createTask]
+  API --> Task[Task ID]
+  Task --> Wait{Callback URL?}
+  Wait -->|yes| Callback[FastAPI Callback]
+  Wait -->|no| Poll[Polling Worker]
+  Callback --> Download[Download URLs]
+  Poll --> Download
+  Download --> Log[SQLite + JSONL Trail]
+  Log --> Review[Human Review Gate]
+  Review --> Publish[Publish / Archive]</code></pre>
+    </section>
+
+    <section class="card">
+      <h2>Open Questions</h2>
+      <ul>
+        <li><span class="banana">Provider:</span> Key.ai or Kie.ai?</li>
+        <li><span class="banana">Trigger:</span> CSV, Sheet, folder, Slack, web, schedule?</li>
+        <li><span class="banana">Storage:</span> local, Drive, S3/R2, GitHub?</li>
+        <li><span class="banana">Quality:</span> 1K draft, 2K review, 4K final?</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Guardrails</h2>
+      <p class="warn">No API keys in browser code. No automatic publish. No provider URL treated as durable. No restart-from-scratch agent behavior.</p>
+    </section>
+
+    <section class="card">
+      <h2>Next Build</h2>
+      <p>Add tests, dry-run payload mode, asset manifest, provider adapter seam, and review queue states.</p>
+    </section>
+  </main>
+
+  <footer>VIZIGROK Compaction v0.1 · tiny banana reactor online 🍌⚡</footer>
+
+  <script>
+    function copyPacket() {
+      const text = document.getElementById('packet').innerText;
+      navigator.clipboard.writeText(text).then(() => alert('Packet shard copied.'));
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local/vizigrok_packet.schema.json",
+  "title": "VIZIGROK Compaction Packet",
+  "type": "object",
+  "required": ["packet_type", "schema_version", "packet_id", "project", "truth_hierarchy", "surfaces", "workflow", "guardrails"],
+  "properties": {
+    "packet_type": { "const": "VIZIGROK_COMPACTION_PACKET" },
+    "schema_version": { "type": "string" },
+    "packet_id": { "type": "string" },
+    "project": {
+      "type": "object",
+      "required": ["name", "purpose", "mode"],
+      "properties": {
+        "name": { "type": "string" },
+        "purpose": { "type": "string" },
+        "mode": { "type": "string" },
+        "owner_context": { "type": "string" }
+      }
+    },
+    "truth_hierarchy": { "type": "array", "items": { "type": "string" } },
+    "surfaces": { "type": "object" },
+    "provider": { "type": "object" },
+    "workflow": { "type": "object" },
+    "guardrails": { "type": "object" },
+    "rehydration_order": { "type": "array", "items": { "type": "string" } },
+    "open_questions": { "type": "array", "items": { "type": "object" } }
+  }
+}

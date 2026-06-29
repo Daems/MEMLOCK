@@ -1,0 +1,120 @@
+packet_type: VIZIGROK_COMPACTION_PACKET
+schema_version: 0.1
+packet_id: vizigrok.nano-banana-pro.v0.1
+project:
+  name: Nano Banana Pro Automation
+  purpose: Automate Nano Banana Pro image-generation jobs through Kie.ai while preserving agent-readable context, handoff state, and audit trail.
+  mode: rehydrate_ready
+  owner_context: Jeffrey Barrows / VIZIGROK workflow
+
+truth_hierarchy:
+  - repo_source_files
+  - compaction/VIZIGROK_COMPACTION.md
+  - compaction/VIZIGROK_PACKET.yaml
+  - ledger/*.jsonl
+  - okf/*.md
+  - chat_context
+
+surfaces:
+  markdown:
+    role: human-readable handoff and anti-restart packet
+    primary_files:
+      - compaction/VIZIGROK_COMPACTION.md
+      - README.md
+      - CLAUDE.md
+  yaml:
+    role: agent-readable state and routing packet
+    primary_files:
+      - compaction/VIZIGROK_PACKET.yaml
+  json:
+    role: machine-ingestable manifest and state snapshot
+    primary_files:
+      - compaction/VIZIGROK_PACKET.json
+      - compaction/FILE_MANIFEST.json
+  jsonl:
+    role: append-only evidence, decisions, tasks, questions, risks
+    primary_files:
+      - ledger/DECISIONS.jsonl
+      - ledger/TASKS.jsonl
+      - ledger/OPEN_QUESTIONS.jsonl
+      - ledger/RISKS.jsonl
+  mermaid:
+    role: topology of the workflow
+    primary_files:
+      - diagrams/vizigrok_nano_banana.mmd
+  html:
+    role: living cockpit for visual reentry
+    primary_files:
+      - dashboards/vizigrok_compaction.html
+
+provider:
+  assumed_name: Kie.ai
+  user_spoken_name: Key.ai
+  model: nano-banana-pro
+  API_contract_observed_in_repo:
+    create_task: POST /api/v1/jobs/createTask
+    record_info: GET /api/v1/jobs/recordInfo
+    auth: Bearer token from KIE_API_KEY
+
+workflow:
+  states:
+    - drafted
+    - queued
+    - submitted
+    - polling_or_callback_wait
+    - completed
+    - downloaded
+    - reviewed
+    - published
+    - archived
+    - failed
+  canonical_sequence:
+    - validate_prompt_job
+    - submit_task
+    - persist_task_id
+    - wait_via_callback_or_polling
+    - parse_result_urls
+    - download_outputs
+    - persist_metadata
+    - human_review_gate
+    - archive_or_publish
+
+guardrails:
+  secrets:
+    - Never commit .env
+    - Never put KIE_API_KEY into browser code
+    - Keep generated private input images out of git
+  reliability:
+    - Save raw provider responses when failures occur
+    - Add tests before refactoring the client or CLI
+    - Use local storage first, then remote storage after manifesting works
+  publication:
+    - No automatic external publish without explicit review gate
+
+rehydration_order:
+  - CLAUDE.md
+  - compaction/VIZIGROK_COMPACTION.md
+  - compaction/VIZIGROK_PACKET.yaml
+  - README.md
+  - skills/nano-banana-pro/SKILL.md
+  - src/nb_auto/kie_client.py
+  - src/nb_auto/cli.py
+  - src/nb_auto/storage.py
+  - src/nb_auto/callback_server.py
+  - ledger/DECISIONS.jsonl
+  - ledger/TASKS.jsonl
+  - ledger/OPEN_QUESTIONS.jsonl
+
+open_questions:
+  - id: oq_provider_name
+    question: Did Key.ai mean Kie.ai, or is there another provider adapter to implement?
+    blocks: provider_adapter_hardening
+  - id: oq_trigger
+    question: Which trigger should be first: CSV, Google Sheet, folder watch, Slack command, web form, or schedule?
+    blocks: production_workflow
+  - id: oq_storage
+    question: Where should final media go after local outputs: Google Drive, S3/R2, GitHub, or another DAM?
+    blocks: publishing_pipeline
+  - id: oq_quality_ladder
+    question: Should resolution policy be draft=1K, review=2K, final=4K?
+    blocks: cost_control

@@ -1,0 +1,33 @@
+flowchart TD
+  A[Prompt Sources<br/>CSV / YAML / CLI / future Sheet] --> B[Job Validator]
+  B --> C[nb_auto CLI]
+  C --> D[Kie.ai createTask<br/>model: nano-banana-pro]
+  D --> E[Task ID]
+  E --> F{Callback URL configured?}
+  F -->|yes| G[FastAPI Callback Receiver]
+  F -->|no| H[Polling Worker<br/>recordInfo + backoff]
+  G --> I[Extract Result URLs]
+  H --> I
+  I --> J[Download Immediately]
+  J --> K[Local outputs/]
+  J --> L[SQLite Task Log]
+  L --> M[Review Gate]
+  K --> M
+  M --> N{Approved?}
+  N -->|yes| O[Publish / Archive / Remote Storage]
+  N -->|no| P[Revise Prompt / Re-run]
+  P --> A
+
+  subgraph VIZIGROK_Compaction["VIZIGROK Compaction Layer"]
+    Q[CLAUDE.md<br/>agent router]
+    R[OKF Index<br/>durable knowledge map]
+    S[SKILL.md<br/>procedure]
+    T[JSONL Ledger<br/>trail]
+    U[HTML Cockpit<br/>human inspection]
+  end
+
+  Q -. guides .-> C
+  R -. routes .-> B
+  S -. procedure .-> C
+  T -. records .-> L
+  U -. visualizes .-> M
