@@ -20,7 +20,7 @@ def build_client() -> tuple[KieClient, Any]:
 
 def cmd_submit(args: argparse.Namespace) -> None:
     client, settings = build_client()
-    response = client.create_nano_banana_pro_task(
+    kwargs: dict[str, Any] = dict(
         prompt=args.prompt,
         image_input=args.image_input or [],
         aspect_ratio=args.aspect_ratio,
@@ -28,6 +28,10 @@ def cmd_submit(args: argparse.Namespace) -> None:
         output_format=args.output_format,
         callback_url=args.callback_url if args.callback_url is not None else settings.callback_url,
     )
+    if args.dry_run:
+        print(json.dumps(client.build_task_payload(**kwargs), indent=2, sort_keys=True, ensure_ascii=False))
+        return
+    response = client.create_nano_banana_pro_task(**kwargs)
     task_id = response.get("data", {}).get("taskId")
     print(json.dumps(response, indent=2, ensure_ascii=False))
     if task_id:
@@ -40,7 +44,7 @@ def cmd_submit_yaml(args: argparse.Namespace) -> None:
     client, settings = build_client()
     job = yaml.safe_load(Path(args.path).read_text(encoding="utf-8"))
     prompt = job["prompt"]
-    response = client.create_nano_banana_pro_task(
+    kwargs: dict[str, Any] = dict(
         prompt=prompt,
         image_input=job.get("image_input") or [],
         aspect_ratio=job.get("aspect_ratio", settings.default_aspect_ratio),
@@ -48,6 +52,10 @@ def cmd_submit_yaml(args: argparse.Namespace) -> None:
         output_format=job.get("output_format", settings.default_output_format),
         callback_url=job.get("callback_url") or settings.callback_url,
     )
+    if args.dry_run:
+        print(json.dumps(client.build_task_payload(**kwargs), indent=2, sort_keys=True, ensure_ascii=False))
+        return
+    response = client.create_nano_banana_pro_task(**kwargs)
     task_id = response.get("data", {}).get("taskId")
     print(json.dumps(response, indent=2, ensure_ascii=False))
     if task_id:
@@ -117,11 +125,13 @@ def main() -> None:
     submit.add_argument("--output-format", default="png", choices=["png", "jpg"])
     submit.add_argument("--callback-url", default=None)
     submit.add_argument("--download", action="store_true")
+    submit.add_argument("--dry-run", action="store_true", help="Print payload without calling the API.")
     submit.set_defaults(func=cmd_submit)
 
     submit_yaml = sub.add_parser("submit-yaml", help="Submit a YAML job file")
     submit_yaml.add_argument("path")
     submit_yaml.add_argument("--download", action="store_true")
+    submit_yaml.add_argument("--dry-run", action="store_true", help="Print payload without calling the API.")
     submit_yaml.set_defaults(func=cmd_submit_yaml)
 
     poll = sub.add_parser("poll", help="Poll a task until completion")

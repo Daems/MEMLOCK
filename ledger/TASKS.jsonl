@@ -2,7 +2,7 @@
 {"id":"t002","status":"done","priority":"high","task":"Create YAML and JSON packet surfaces."}
 {"id":"t003","status":"done","priority":"high","task":"Create Mermaid topology."}
 {"id":"t004","status":"done","priority":"high","task":"Create live HTML cockpit."}
-{"id":"t005","status":"next","priority":"high","task":"Add tests for KieClient payload validation, response decoding, URL extraction, and storage functions."}
-{"id":"t006","status":"next","priority":"medium","task":"Add dry-run mode for CLI payload inspection without API submission."}
+{"id":"t005","status":"done","priority":"high","task":"Add tests for KieClient payload validation, response decoding, URL extraction, and storage functions."}
+{"id":"t006","status":"done","priority":"medium","task":"Add dry-run mode for CLI payload inspection without API submission."}
 {"id":"t007","status":"next","priority":"medium","task":"Add generated asset manifest per output file."}
 {"id":"t008","status":"next","priority":"medium","task":"Implement first production trigger after Jeffrey chooses CSV, Sheet, folder watch, Slack, web form, or schedule."}

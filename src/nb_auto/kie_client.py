@@ -26,7 +26,7 @@ class KieClient:
             "Content-Type": "application/json",
         }
 
-    def create_nano_banana_pro_task(
+    def build_task_payload(
         self,
         *,
         prompt: str,
@@ -57,7 +57,26 @@ class KieClient:
         }
         if callback_url:
             payload["callBackUrl"] = callback_url
+        return payload
 
+    def create_nano_banana_pro_task(
+        self,
+        *,
+        prompt: str,
+        image_input: list[str] | None = None,
+        aspect_ratio: str = "1:1",
+        resolution: str = "1K",
+        output_format: str = "png",
+        callback_url: str | None = None,
+    ) -> dict[str, Any]:
+        payload = self.build_task_payload(
+            prompt=prompt,
+            image_input=image_input,
+            aspect_ratio=aspect_ratio,
+            resolution=resolution,
+            output_format=output_format,
+            callback_url=callback_url,
+        )
         url = f"{self.base_url}/api/v1/jobs/createTask"
         response = requests.post(url, headers=self.headers, json=payload, timeout=self.timeout)
         return self._decode_response(response)
