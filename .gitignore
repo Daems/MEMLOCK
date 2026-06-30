@@ -2,5 +2,6 @@
 .env
 __pycache__/
 *.pyc
+*.egg-info/
 outputs/
 .DS_Store
